@@ -61,6 +61,11 @@
                         <li>TroubleShooting IT</li>
                         <li>Stok Opname</li>
                         <li>Finance Staff</li>
+                        <div>
+                            <button onclick="show('Kompetensi Keahlian')">
+                                (Lihat Selengkapnya)
+                            </button>
+                        </div>
                     </ul>
                 </section>
                 <section class="box educations bg-blue" data-aos="fade-up">
@@ -115,15 +120,27 @@
                             <strong>CV. CITA ADI KARYA</strong>
                             (Mei 2022 - September 2023) sebagai
                             <strong>Admin & Supervisor Proyek</strong>
+                            <button onclick="show('CV. CITA ADI KARYA')">
+                                (Lihat Selengkapnya)
+                            </button>
                         </li>
                         <li>
                             <strong>SD NEGERI TEMBOK KIDUL </strong>
                             (April 2021 - Mei 2021) sebagai
                             <strong>Staff Tata Usaha</strong>
+                            <button onclick="show('SD NEGERI TEMBOK KIDUL')">
+                                (Lihat Selengkapnya)
+                            </button>
                         </li>
                     </ul>
                 </section>
+                <section id="modal" class="bg-blue">
+                    <h1 id="title"></h1>
+                    <ul id="job"></ul>
+                    <button onclick="clos()">Tutup</button>
+                </section>
             </section>
+
             <footer>
                 <h5>Copyright 2024</h5>
                 <div class="icon">
@@ -148,6 +165,67 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
+
+            const textContent = [
+                {
+                    title: "CV. CITA ADI KARYA",
+                    job: [
+                        "Bertanggung  jawab  terhadap  operasional  Perusahaan  untuk  memastikan  rekan-rekan  kerja  bekerja sesuai SOP dan melakukan tugasnya sesuai dengan jobdesc.",
+                        "Bertanggung  jawab  dalam  mengelola  proyek  pengadaan  IT  dan  furniture  dengan  tim  dengan  jumlah pengerjaan  3-5  proyek  dalam  sebulan,  menyelesaikan  proyek  tepat  waktu  dan  dalam  anggaran dengan tingkat kepuasan klien 90%.",
+                        "Bertanggung jawab dalam menyediakan, mengelola dan melaporkan data dan dokumen proyek seperti surat kontrak, permintaan pembayaran, laporan kemajuan proyek dan lain-lain. ",
+                        "Bertanggung  jawab  dalam  mengurus  perizinan  perjalanan  dinas  pengadaan  barang  dan  jasa  serta kebutuhan administrasi lainnya yang berkaitan dengan proyek. ",
+                        "Berhasil melakukan Stok Opname setiap 2 minggu sekali yang bertujuan menjaga stok barang.",
+                    ],
+                },
+                {
+                    title: "SD NEGERI TEMBOK KIDUL",
+                    job: [
+                        "Berhasil menyediakan dan mengelola dokumen-dokumen yang dibutuhkan Kepala Sekolah dan sekolah 10 – 15 dokumen setiap harinya. ",
+                        "Bertanggung jawab mengoperasikan aplikasi Dapodik yang bertujuan data-data sekolah berupa guru, Staff, Murid, dan aset sekolah tercatat dengan valid.",
+                        "Berhasil dalam membantu bendahara untuk membuat RAB (Rincian Anggaran Biaya) sekolah setiap 3 bulan sekali.",
+                    ],
+                },
+                {
+                    title: "Kompetensi Keahlian",
+                    job: [
+                        "Staff  Administrasi  :  mampu  melakukan  pengelolaan  peralatan  kantor,  melakukan  arsip  data  atau dokumen,  mengelola  kas  kecil,  mampu  melaksanakan  analisis  kebijakan  di  bidang  administrasi pelayanan, perijinan, dan pelaksanaan program-program pembangunan perusahaan.",
+                        "TroubleShooting  IT  :  mampu  mengidentifikasi,  menganalisis,  dan  menyelesaikan  berbagai  kendala teknis pada  komputer  dan  laptop,  termasuk  masalah  perangkat  lunak,  jaringan,  atau  perangkat keras secara  efisien  dan  tepat  waktu.  Melakukan  diagnosis  mendalam  terhadap  masalah  yang  muncul, memberikan  solusi  yang  tepat,  dan  melakukan  perbaikan  untuk  memastikan  kinerja  optimal  dari perangkat tersebut. ",
+                        "Stok Opname : mampu melakukan penghitungan stok dengan akurat dan mengimplementasikan sistem First-In,  First-Out  (FIFO)  dan First-Expired,  First-Out  (FEFO)  untuk  pengelolaan  barang  dengan memastikan keluar masuknya barang tercatat dengan tepat sesuai dengan prosedur yang ditetapkan. Selain  itu,  bertanggung  jawab  dalam  pencatatan  detail  terkait  pergerakan  barang  untuk  memastikan keakuratan inventarisasi stok secara menyeluruh. ",
+                        "Finance Staff : mampu secara efisien mengelola arus kas perusahaan dengan melakukan perhitungan laba  rugi  yang  akurat,  mengelola  pembayaran  atas  kewajiban  perusahaan,  dan  mempertahankan catatan  keuangan  yang  teliti.  Bertanggung  jawab  dalam  menangani  aktivitas kas  perusahaan dengan cermat  untuk  memastikan  kelancaran  operasional  keuangan  dan  mematuhi  prosedur  keuangan  yang telah ditetapkan. ",
+                    ],
+                },
+            ];
+
+            const modal = document.getElementById("modal");
+            const titleModal = document.getElementById("title");
+            const job = document.getElementById("job");
+            const list = document.getElementById("list");
+
+            modal.style.display = "none";
+
+            const clos = () => {
+                modal.style.display = "none";
+                while (job.firstChild) {
+                    job.removeChild(job.firstChild);
+                }
+            };
+
+            const show = (title) => {
+                modal.style.display = "block";
+
+                const content = textContent.find((a) => {
+                    return a.title === title;
+                });
+
+                titleModal.innerText = content.title;
+
+                content.job.map((a) => {
+                    const li = document.createElement("li");
+                    li.setAttribute("id", "list");
+                    li.textContent = a;
+                    job.append(li);
+                });
+            };
         </script>
     </body>
 </html>
