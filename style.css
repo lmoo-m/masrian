@@ -12,7 +12,7 @@ body{
     font-weight: 400;
     font-style: normal;
     color: white;
-    height: 100vh;
+    height: 120vh;
     background: linear-gradient(to top, white 10%, rgba(107, 159, 208, .8) 35%, rgba(107, 159, 208, .5) );
 }
 
