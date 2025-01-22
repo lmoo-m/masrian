@@ -12,7 +12,7 @@ body{
     font-weight: 400;
     font-style: normal;
     color: white;
-    height: 120vh;
+    height: 150vh;
     background: linear-gradient(to top, white 10%, rgba(107, 159, 208, .8) 35%, rgba(107, 159, 208, .5) );
 }
 
@@ -116,7 +116,7 @@ header h3{
 
 .content .box{
     padding: 1rem;
-    height: 10rem;
+    height: 15rem;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
